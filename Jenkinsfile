@@ -48,7 +48,7 @@ pipeline {
                 sh '''
                 git config --global user.email "akshitpatel1732@gmail.com"
                 git config --global user.name "Akshit Patel"
-                git tag -a v1.0 -m "First release"
+                git tag -a v1.1 -m "First release"
                 git push origin v1.1 || true
                 '''
             }
