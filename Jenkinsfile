@@ -48,11 +48,17 @@ pipeline {
                 sh '''
                 git config --global user.email "akshitpatel1732@gmail.com"
                 git config --global user.name "Akshit Patel"
-                git tag -a v1.0 -m "First release"
-                git push origin v1.0 || true
+        
+                if git rev-parse v1.0 >/dev/null 2>&1; then
+                  echo "Tag v1.0 already exists. Skipping tag creation."
+                else
+                  git tag -a v1.0 -m "First release"
+                  git push origin v1.0
+                fi
                 '''
             }
         }
+
 
         stage('Monitoring') {
             steps {
