@@ -23,8 +23,7 @@ pipeline {
         stage('Code Quality') {
             steps {
                 echo "Running cppcheck analysis..."
-                sh 'cppcheck --enable=all --xml fileSystem.c 2> cppcheck.xml || true'
-                recordIssues tools: [cppCheck(pattern: 'cppcheck.xml')]
+                sh 'cppcheck --enable=all fileSystem.c || true'
             }
         }
 
