@@ -37,8 +37,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo "Running the application container interactively (demo mode)..."
-                sh 'docker run -dit --name fsapp filesystem-app'
+                echo "Running the application container..."
+                sh 'docker run -d --name fsapp $DOCKER_IMAGE'
             }
         }
 
